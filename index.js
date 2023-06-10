@@ -27,22 +27,27 @@
 //     console.log("Arrow function")
 // } //arrow function will be treated it as variable, it will be undefined in global execution context
 
-
 //FUNCTIONS
 
-var x = 1;
-a();
-b();
-console.log(x);
+// var x = 1;
+// a();
+// b();
+// console.log(x);
 
-function a() {
-    var x = 10;
-    console.log(x)
-}
+// function a() {
+//     var x = 10;
+//     console.log(x)
+// }
 
-function b() {
-    var x = 100;
-    console.log(x)
-}
+// function b() {
+//     var x = 100;
+//     console.log(x)
+// }
 
 // Output will be 10, 100, 1
+
+// Small program
+var a = 10;
+console.log(a);
+console.log(window.a)
+console.log(this.a)
