@@ -52,18 +52,38 @@
 // console.log(window.a)
 // console.log(this.a)
 
-// SCOPE CHAIN
+// // SCOPE CHAIN
 
-let x = 10;
+// let x = 10;
 
-function a() {
-    var y = 20;
-    b();
-    function b() {
-        console.log(y);
-        console.log(x);
-    }
-}
-a();
+// function a() {
+//     var y = 20;
+//     b();
+//     function b() {
+//         console.log(y);
+//         console.log(x);
+//     }
+// }
+// a();
 
-// When a function is invoked, a lexical environment is created which has its local variable and refrence to outer variable in which it is created, and this chain is called scope chain.
+// // When a function is invoked, a lexical environment is created which has its local variable and refrence to outer variable in which it is created, and this chain is called scope chain.
+
+//LET & CONST
+
+// console.log(b);
+// let a = 10;
+// var b = 20 //normal execution
+
+// console.log(a)
+// let a = 10;
+// var b = 20
+// // a variable will be in temporal dead zone, it will not be accessible & it will give reference error
+
+const a;
+a = 500;
+console.log(a);
+let a = 20;
+let a = 30;
+console.log(a);
+
+Both the above case will produce result of syntax error, because you can't define let again, and you have initialize const once it is defined
