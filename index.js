@@ -46,8 +46,24 @@
 
 // Output will be 10, 100, 1
 
-// Small program
-var a = 10;
-console.log(a);
-console.log(window.a)
-console.log(this.a)
+// // Small program
+// var a = 10;
+// console.log(a);
+// console.log(window.a)
+// console.log(this.a)
+
+// SCOPE CHAIN
+
+let x = 10;
+
+function a() {
+    var y = 20;
+    b();
+    function b() {
+        console.log(y);
+        console.log(x);
+    }
+}
+a();
+
+// When a function is invoked, a lexical environment is created which has its local variable and refrence to outer variable in which it is created, and this chain is called scope chain.
