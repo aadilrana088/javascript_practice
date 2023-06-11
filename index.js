@@ -103,16 +103,56 @@
 // In this a will be window, b & c and local scopped, so its output will be 10, 20, 30 
 // Uncaught ReferenceError: b is not defined
 
-var x = 10;
-let y = 20
-{
-    var x = 100;
-    let y = 200;
-    console.log(x)
-    console.log(y)
-}
-console.log(x)
-console.log(y)
+// var x = 10;
+// let y = 20
+// {
+//     var x = 100;
+//     let y = 200;
+//     console.log(x)
+//     console.log(y)
+// }
+// console.log(x)
+// console.log(y)
 // Output will be 100, 200, 100, 20
 // because var is global scoped and y is local scoped and same is case with const, it is also locally await scoped
 // Shodowing is overwritting a variable within its scoped
+
+// Closure
+// function x() {
+//     var a = 10;
+//     function y() {
+//         console.log(a);
+//     }
+//     y();
+// }
+// x();
+// Y function has access to a because of lexical environment, x is closure for y.
+
+// function x() {
+//     var a = 10;
+//     function y() {
+//         console.log(a);
+//     }
+//     a = 100
+//     return y
+// }
+// var z = x()
+// console.log(z)
+// z();
+
+// function with its lexial environment bundled together is called closures.
+// As per above example when cursor moves to line 138, x should be removed from memory, so at line 139, when we execute  z() it should not print anything, but it will print as it remembers its lexical environment because of clousres
+
+function z() {
+    var a = 10;
+    function y() {
+        var b = 100;
+        function x() {
+            console.log(a, b)
+        }
+        x();
+    }
+    y();
+}
+z();
+// Output will be 10, 100. As it remebers all its parent lexical environment of closure (z) and closure (y) 
