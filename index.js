@@ -100,7 +100,7 @@
 // console.log(a);
 // console.log(b);
 // console.log(c);
-// In this a will be window, b & c and local scopped, so its output will be 10, 20, 30 
+// In this a will be window, b & c and local scopped, so its output will be 10, 20, 30
 // Uncaught ReferenceError: b is not defined
 
 // var x = 10;
@@ -143,16 +143,49 @@
 // function with its lexial environment bundled together is called closures.
 // As per above example when cursor moves to line 138, x should be removed from memory, so at line 139, when we execute  z() it should not print anything, but it will print as it remembers its lexical environment because of clousres
 
-function z() {
-    var a = 10;
-    function y() {
-        var b = 100;
-        function x() {
-            console.log(a, b)
+// function z() {
+//     var a = 10;
+//     function y() {
+//         var b = 100;
+//         function x() {
+//             console.log(a, b)
+//         }
+//         x();
+//     }
+//     y();
+// }
+// z();
+// Output will be 10, 100. As it remebers all its parent lexical environment of closure (z) and closure (y)
+
+//Settimeout & Closures
+// function x() {
+//     setTimeout(() => {
+//         console.log("SetTimeout");
+//     }, 1000);
+//     console.log("Outside Closures")
+// }
+// x();
+
+// function x() {
+//     for (let i=0; i< 5; i++) {
+//         setTimeout(() => {
+//             console.log(i)
+//         },[i*1000])
+//     }
+// }
+// x()
+// it print 0 to 5 becuause let is locally scoped, if we use var instead of let it will print 5 five times becuase it reference to global scoped.
+
+function x() {
+    for (var i=0; i< 5; i++) {
+        function closure(x) {
+            setTimeout(() => {
+                console.log(x)
+            },[x*1000])
         }
-        x();
+        closure(i)
     }
-    y();
 }
-z();
-// Output will be 10, 100. As it remebers all its parent lexical environment of closure (z) and closure (y) 
+x()
+// We can acheive the above functionality while using let by creating closure and calling it.
+
