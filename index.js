@@ -79,11 +79,40 @@
 // var b = 20
 // // a variable will be in temporal dead zone, it will not be accessible & it will give reference error
 
-const a;
-a = 500;
-console.log(a);
-let a = 20;
-let a = 30;
-console.log(a);
+// const a;
+// a = 500;
+// console.log(a);
+// let a = 20;
+// let a = 30;
+// console.log(a);
 
-Both the above case will produce result of syntax error, because you can't define let again, and you have initialize const once it is defined
+// Both the above case will produce result of syntax error, because you can't define let again, and you have initialize const once it is defined
+
+//Block and Scope
+// {
+//     var a = 10;
+//     let b = 20;
+//     const c = 30;
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// console.log(a);
+// console.log(b);
+// console.log(c);
+// In this a will be window, b & c and local scopped, so its output will be 10, 20, 30 
+// Uncaught ReferenceError: b is not defined
+
+var x = 10;
+let y = 20
+{
+    var x = 100;
+    let y = 200;
+    console.log(x)
+    console.log(y)
+}
+console.log(x)
+console.log(y)
+// Output will be 100, 200, 100, 20
+// because var is global scoped and y is local scoped and same is case with const, it is also locally await scoped
+// Shodowing is overwritting a variable within its scoped
