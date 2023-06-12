@@ -176,16 +176,68 @@
 // x()
 // it print 0 to 5 becuause let is locally scoped, if we use var instead of let it will print 5 five times becuase it reference to global scoped.
 
-function x() {
-    for (var i=0; i< 5; i++) {
-        function closure(x) {
-            setTimeout(() => {
-                console.log(x)
-            },[x*1000])
-        }
-        closure(i)
-    }
-}
-x()
+// function x() {
+//     for (var i=0; i< 5; i++) {
+//         function closure(x) {
+//             setTimeout(() => {
+//                 console.log(x)
+//             },[x*1000])
+//         }
+//         closure(i)
+//     }
+// }
+// x()
 // We can acheive the above functionality while using let by creating closure and calling it.
 
+// function outer() {
+//     function inner() {
+//         console.log(x);
+//     }
+//     let x = 10;
+//     return inner
+// }
+// let result = outer()();
+
+// function outest() {
+//     let a = 10;
+//     function outer(b) {
+//         let c = 30;
+//         function inner() {
+//             console.log(a, b, c)
+//         }
+//         return inner
+//     }
+//     return outer
+// }
+// let a = 40;
+// let result  = outest()(20);
+// result();
+// Both let a has different scoped, it will prints its first parent
+
+// Data hiding using closures
+// function counter() {
+//     let count = 0;
+//     return function increamentCount() {
+//         count++
+//         console.log(count)
+//     }
+// }
+// const counter1 = counter();
+// counter1();
+// counter1();
+
+// const counter2 = counter();
+// counter2();
+
+setTimeout(() => {
+    console.log('timer');
+}, 5000);
+
+function x(y) {
+    console.log('x');
+    y()
+}
+
+x(function y() {
+    console.log('y');
+});
