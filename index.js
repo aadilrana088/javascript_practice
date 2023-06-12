@@ -229,15 +229,24 @@
 // const counter2 = counter();
 // counter2();
 
-setTimeout(() => {
-    console.log('timer');
-}, 5000);
+// setTimeout(() => {
+//     console.log('timer');
+// }, 5000);
 
-function x(y) {
-    console.log('x');
-    y()
+// function x(y) {
+//     console.log('x');
+//     y()
+// }
+
+// x(function y() {
+//     console.log('y');
+// });
+function attachEventListener() {
+    let count = 0;
+    document
+        .getElementById('clickMe')
+        .addEventListener('click', function xyz() {
+            console.log('Clicked', ++count);
+        });
 }
-
-x(function y() {
-    console.log('y');
-});
+attachEventListener();
