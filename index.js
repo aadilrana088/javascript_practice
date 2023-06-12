@@ -241,12 +241,71 @@
 // x(function y() {
 //     console.log('y');
 // });
-function attachEventListener() {
-    let count = 0;
-    document
-        .getElementById('clickMe')
-        .addEventListener('click', function xyz() {
-            console.log('Clicked', ++count);
-        });
-}
-attachEventListener();
+// function attachEventListener() {
+//     let count = 0;
+//     document
+//         .getElementById('clickMe')
+//         .addEventListener('click', function xyz() {
+//             console.log('Clicked', ++count);
+//         });
+// }
+// attachEventListener();
+
+// const radius = [2, 3, 4, 5];
+
+// const calculateArea = function (radius) {
+//     let output = [];
+//     for (let i = 0; i < radius.length; i++) {
+//         output.push(Math.PI * radius[i] * radius[i]);
+//     }
+//     return output;
+// };
+
+// console.log(calculateArea(radius));
+
+// const calculateCircumference = function (radius) {
+//     let output = [];
+//     for (let i = 0; i < radius.length; i++) {
+//         output.push(2 * Math.PI * radius[i]);
+//     }
+//     return output;
+// };
+
+// console.log(calculateCircumference(radius));
+
+// const calculateDiameter = function (radius) {
+//     let output = [];
+//     for (let i = 0; i < radius.length; i++) {
+//         output.push(2 * radius[i]);
+//     }
+//     return output;
+// };
+
+// console.log(calculateDiameter(radius));
+const radius = [2, 3, 4, 5];
+
+const area = function (radius) {
+    return Math.PI * radius * radius;
+};
+
+const cirumference = function (radius) {
+    return 2 * Math.PI * radius;
+};
+
+const diameter = function (radius) {
+    return 2 * radius;
+};
+
+const calculate = function (arr, logic) {
+    let output = [];
+    for (let i = 0; i < arr.length; i++) {
+        output.push(logic(arr[i]))
+    }
+    return output
+};
+
+console.log(calculate(radius, area))
+console.log(radius.map(area))
+
+console.log(calculate(radius, cirumference))
+console.log(calculate(radius, diameter))
