@@ -309,3 +309,17 @@ console.log(radius.map(area))
 
 console.log(calculate(radius, cirumference))
 console.log(calculate(radius, diameter))
+
+
+Array.prototype.mapCalculate = function(logic) {
+    let output = [];
+    for (let i = 0; i< this.length;i++) {
+        output.push(logic(this[i]))
+    }
+    return output
+}
+
+console.log(radius.mapCalculate(area))
+console.log(radius.map(area))
+
+// This is like map function 
