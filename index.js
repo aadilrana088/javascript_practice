@@ -325,40 +325,80 @@
 
 // Map, filter & Reduce;
 
-const arr = [2, 4, 6, 7, 3, 5];
+// const arr = [2, 4, 6, 7, 3, 5];
 
-function findSum(arr) {
-    let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-        sum += arr[i];
-    }
-    return sum;
-}
+// function findSum(arr) {
+//     let sum = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         sum += arr[i];
+//     }
+//     return sum;
+// }
 
-console.log(findSum(arr));
+// console.log(findSum(arr));
 
-let sumFilter = arr.reduce(function (acc, curr) {
-    return acc + curr;
-}, 0);
-console.log(sumFilter);
+// let sumFilter = arr.reduce(function (acc, curr) {
+//     return acc + curr;
+// }, 0);
+// console.log(sumFilter);
 
-function findMax(arr) {
-    let max = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (max < arr[i]) {
-            max = arr[i];
-        }
-    }
-    return max;
-}
+// function findMax(arr) {
+//     let max = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         if (max < arr[i]) {
+//             max = arr[i];
+//         }
+//     }
+//     return max;
+// }
 
-console.log(findMax(arr));
+// console.log(findMax(arr));
 
-const maxFilter = arr.reduce(function (acc, curr) {
-    if(acc < curr) {
-        acc = curr;
+// const maxFilter = arr.reduce(function (acc, curr) {
+//     if(acc < curr) {
+//         acc = curr;
+//     }
+//     return acc
+// }, 0);
+
+// console.log(maxFilter);
+
+const users = [
+    { firstName: 'Aadil', lastName: 'Rana', age: 24 },
+    { firstName: 'Dilber', lastName: 'Hussain', age: 50 },
+    { firstName: 'Saud', lastName: 'Khan', age: 26 },
+    { firstName: 'Naqui', lastName: 'Hasan', age: 26 },
+];
+
+const fullName = users.map(user => {
+    return `${user.firstName} ${user.lastName}`
+})
+
+console.log(fullName)  //Output (4) ['Aadil Rana', 'Dilber Hussain', 'Saud Khan', 'Naqui Hasan']
+
+const result = users.reduce(function(acc, curr) {
+    if(acc[curr.age]) {
+        acc[curr.age] = ++acc[curr.age]
+    } else {
+        acc[curr.age] = 1
     }
     return acc
-}, 0);
+},{})
 
-console.log(maxFilter);
+console.log(result); //Output {24: 1, 25: 1, 26: 2}
+
+//First Name of all people whose age is less than 30
+
+let firstNameAge = users.filter(user => user.age < 30).map(user => user.firstName)
+
+console.log(firstNameAge); //Output (3) ['Aadil', 'Saud', 'Naqui']
+
+let firstNameAgeReduce = users.reduce((acc, curr) => {
+    if(curr.age < 30) {
+        acc.push(curr.firstName)
+    }
+    return acc
+},[] )
+
+console.log(firstNameAgeReduce);
+// The Above functionality is achieved using reduce function
