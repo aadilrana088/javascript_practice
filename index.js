@@ -282,44 +282,83 @@
 // };
 
 // console.log(calculateDiameter(radius));
-const radius = [2, 3, 4, 5];
+// const radius = [2, 3, 4, 5];
 
-const area = function (radius) {
-    return Math.PI * radius * radius;
-};
+// const area = function (radius) {
+//     return Math.PI * radius * radius;
+// };
 
-const cirumference = function (radius) {
-    return 2 * Math.PI * radius;
-};
+// const cirumference = function (radius) {
+//     return 2 * Math.PI * radius;
+// };
 
-const diameter = function (radius) {
-    return 2 * radius;
-};
+// const diameter = function (radius) {
+//     return 2 * radius;
+// };
 
-const calculate = function (arr, logic) {
-    let output = [];
+// const calculate = function (arr, logic) {
+//     let output = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         output.push(logic(arr[i]))
+//     }
+//     return output
+// };
+
+// console.log(calculate(radius, area))
+// console.log(radius.map(area))
+
+// console.log(calculate(radius, cirumference))
+// console.log(calculate(radius, diameter))
+
+// Array.prototype.mapCalculate = function(logic) {
+//     let output = [];
+//     for (let i = 0; i< this.length;i++) {
+//         output.push(logic(this[i]))
+//     }
+//     return output
+// }
+
+// console.log(radius.mapCalculate(area))
+// console.log(radius.map(area))
+
+// This is like map function
+
+// Map, filter & Reduce;
+
+const arr = [2, 4, 6, 7, 3, 5];
+
+function findSum(arr) {
+    let sum = 0;
     for (let i = 0; i < arr.length; i++) {
-        output.push(logic(arr[i]))
+        sum += arr[i];
     }
-    return output
-};
-
-console.log(calculate(radius, area))
-console.log(radius.map(area))
-
-console.log(calculate(radius, cirumference))
-console.log(calculate(radius, diameter))
-
-
-Array.prototype.mapCalculate = function(logic) {
-    let output = [];
-    for (let i = 0; i< this.length;i++) {
-        output.push(logic(this[i]))
-    }
-    return output
+    return sum;
 }
 
-console.log(radius.mapCalculate(area))
-console.log(radius.map(area))
+console.log(findSum(arr));
 
-// This is like map function 
+let sumFilter = arr.reduce(function (acc, curr) {
+    return acc + curr;
+}, 0);
+console.log(sumFilter);
+
+function findMax(arr) {
+    let max = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+console.log(findMax(arr));
+
+const maxFilter = arr.reduce(function (acc, curr) {
+    if(acc < curr) {
+        acc = curr;
+    }
+    return acc
+}, 0);
+
+console.log(maxFilter);
