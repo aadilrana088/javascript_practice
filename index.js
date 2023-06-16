@@ -363,42 +363,62 @@
 
 // console.log(maxFilter);
 
-const users = [
-    { firstName: 'Aadil', lastName: 'Rana', age: 24 },
-    { firstName: 'Dilber', lastName: 'Hussain', age: 50 },
-    { firstName: 'Saud', lastName: 'Khan', age: 26 },
-    { firstName: 'Naqui', lastName: 'Hasan', age: 26 },
-];
+// const users = [
+//     { firstName: 'Aadil', lastName: 'Rana', age: 24 },
+//     { firstName: 'Dilber', lastName: 'Hussain', age: 50 },
+//     { firstName: 'Saud', lastName: 'Khan', age: 26 },
+//     { firstName: 'Naqui', lastName: 'Hasan', age: 26 },
+// ];
 
-const fullName = users.map(user => {
-    return `${user.firstName} ${user.lastName}`
-})
+// const fullName = users.map(user => {
+//     return `${user.firstName} ${user.lastName}`
+// })
 
-console.log(fullName)  //Output (4) ['Aadil Rana', 'Dilber Hussain', 'Saud Khan', 'Naqui Hasan']
+// console.log(fullName)  //Output (4) ['Aadil Rana', 'Dilber Hussain', 'Saud Khan', 'Naqui Hasan']
 
-const result = users.reduce(function(acc, curr) {
-    if(acc[curr.age]) {
-        acc[curr.age] = ++acc[curr.age]
-    } else {
-        acc[curr.age] = 1
+// const result = users.reduce(function(acc, curr) {
+//     if(acc[curr.age]) {
+//         acc[curr.age] = ++acc[curr.age]
+//     } else {
+//         acc[curr.age] = 1
+//     }
+//     return acc
+// },{})
+
+// console.log(result); //Output {24: 1, 25: 1, 26: 2}
+
+// //First Name of all people whose age is less than 30
+
+// let firstNameAge = users.filter(user => user.age < 30).map(user => user.firstName)
+
+// console.log(firstNameAge); //Output (3) ['Aadil', 'Saud', 'Naqui']
+
+// let firstNameAgeReduce = users.reduce((acc, curr) => {
+//     if(curr.age < 30) {
+//         acc.push(curr.firstName)
+//     }
+//     return acc
+// },[] )
+
+// console.log(firstNameAgeReduce);
+// // The Above functionality is achieved using reduce function
+
+// let a = 5;
+// let b = '5';
+
+// console.log(a==b);
+// console.log(a===b)  
+
+// const amap = [1,2,3,4,5]
+// console.log(amap.map((value) => value*2));
+
+// Currying
+const curry = (a) => {
+    return (b) => {
+        return (c) => {
+            return [a,b,c]
+        }
     }
-    return acc
-},{})
+}
 
-console.log(result); //Output {24: 1, 25: 1, 26: 2}
-
-//First Name of all people whose age is less than 30
-
-let firstNameAge = users.filter(user => user.age < 30).map(user => user.firstName)
-
-console.log(firstNameAge); //Output (3) ['Aadil', 'Saud', 'Naqui']
-
-let firstNameAgeReduce = users.reduce((acc, curr) => {
-    if(curr.age < 30) {
-        acc.push(curr.firstName)
-    }
-    return acc
-},[] )
-
-console.log(firstNameAgeReduce);
-// The Above functionality is achieved using reduce function
+console.log(curry(2)(3)(4));
