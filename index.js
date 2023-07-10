@@ -407,18 +407,56 @@
 // let b = '5';
 
 // console.log(a==b);
-// console.log(a===b)  
+// console.log(a===b)
 
 // const amap = [1,2,3,4,5]
 // console.log(amap.map((value) => value*2));
 
 // Currying
-const curry = (a) => {
-    return (b) => {
-        return (c) => {
-            return [a,b,c]
-        }
-    }
+// const curry = (a) => {
+//     return (b) => {
+//         return (c) => {
+//             return [a,b,c]
+//         }
+//     }
+// }
+
+// console.log(curry(2)(3)(4));
+
+// Data hiding & encapsulation
+
+// function Counter() {
+//     let count = 0;
+//     this.increamentCount = () => {
+//         count++
+//         console.log(count);
+//     }
+// }
+
+// let newCounter = new Counter();
+// newCounter.increamentCount();
+// newCounter.increamentCount();
+
+function test(arg1, arg2) {
+    console.log(this.num[1], arg1, arg2);
 }
 
-console.log(curry(2)(3)(4));
+test.call({ num: [10, 5] }, 4, 5);
+
+function test1(...arg) {
+    console.log(this.num, arg);
+}
+test1.apply({ num: 1 }, [2, 3, 5]);
+
+function binded(...arg) {
+    console.log(this.num, arg);
+}
+
+let bined = binded.bind({ num: 2 }, 3, 5, 5);
+bined();
+
+//Call, Appply & Bind
+
+// Call bind this to the function & execute the function, It takes this value & list of arguments.
+// Apply bind this to the function & execute the funtion . It takes this value & pass list of arguments as an array.
+// Bind also bind this to the function & it takes this value & pass list of arguments. It does not execute the funtion we have to seprately execute the function
