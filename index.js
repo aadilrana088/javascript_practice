@@ -437,26 +437,40 @@
 // newCounter.increamentCount();
 // newCounter.increamentCount();
 
-function test(arg1, arg2) {
-    console.log(this.num[1], arg1, arg2);
+// function test(arg1, arg2) {
+//     console.log(this.num[1], arg1, arg2);
+// }
+
+// test.call({ num: [10, 5] }, 4, 5);
+
+// function test1(...arg) {
+//     console.log(this.num, arg);
+// }
+// test1.apply({ num: 1 }, [2, 3, 5]);
+
+// function binded(...arg) {
+//     console.log(this.num, arg);
+// }
+
+// let bined = binded.bind({ num: 2 }, 3, 5, 5);
+// bined();
+
+// //Call, Appply & Bind
+
+// // Call bind this to the function & execute the function, It takes this value & list of arguments.
+// // Apply bind this to the function & execute the funtion . It takes this value & pass list of arguments as an array.
+// // Bind also bind this to the function & it takes this value & pass list of arguments. It does not execute the funtion we have to seprately execute the function
+
+// CLOSURES
+
+function greet(name) {
+    function welcome() {
+        console.log("This is: "+name);    
+    }
+    return welcome
 }
+const g1 = greet("Aadil")
+console.log(g1)
+g1()
 
-test.call({ num: [10, 5] }, 4, 5);
-
-function test1(...arg) {
-    console.log(this.num, arg);
-}
-test1.apply({ num: 1 }, [2, 3, 5]);
-
-function binded(...arg) {
-    console.log(this.num, arg);
-}
-
-let bined = binded.bind({ num: 2 }, 3, 5, 5);
-bined();
-
-//Call, Appply & Bind
-
-// Call bind this to the function & execute the function, It takes this value & list of arguments.
-// Apply bind this to the function & execute the funtion . It takes this value & pass list of arguments as an array.
-// Bind also bind this to the function & it takes this value & pass list of arguments. It does not execute the funtion we have to seprately execute the function
+//Clousure is function inside another function & inner function has accessible to outer function variable after outer function get executed due to lexical scoping.
