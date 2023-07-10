@@ -463,14 +463,42 @@
 
 // CLOSURES
 
-function greet(name) {
-    function welcome() {
-        console.log("This is: "+name);    
-    }
-    return welcome
-}
-const g1 = greet("Aadil")
-console.log(g1)
-g1()
+// function greet(name) {
+//     function welcome() {
+//         console.log("This is: "+name);
+//     }
+//     return welcome
+// }
+// const g1 = greet("Aadil")
+// console.log(g1)
+// g1()
 
-//Clousure is function inside another function & inner function has accessible to outer function variable after outer function get executed due to lexical scoping.
+// //Clousure is function inside another function & inner function has accessible to outer function variable after outer function get executed due to lexical scoping.
+
+// Temporal Dead zone
+// Temporal Dead zone is a scope where variable is inaccessible before initialization
+// {
+
+//     console.log(food);
+
+//     let food = "Chicken Curry"
+
+//     console.log(food);
+// }
+
+//HOISTING
+//Hositing is js giving high specificity or precedence to the declaration of variable, function, classes before program execution
+
+{
+    // Declare a variable:
+    let bestFood = 'Fish and Chips';
+
+    // Declare another variable:
+    let myBestMeal = function () {
+        console.log(bestFood);
+        let bestFood = 'Vegetable Fried Rice';
+    };
+
+    // Invoke myBestMeal function:
+    myBestMeal();
+}
