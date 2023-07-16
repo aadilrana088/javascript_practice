@@ -489,16 +489,59 @@
 //HOISTING
 //Hositing is js giving high specificity or precedence to the declaration of variable, function, classes before program execution
 
-{
-    // Declare a variable:
-    let bestFood = 'Fish and Chips';
+// {
+//     // Declare a variable:
+//     let bestFood = 'Fish and Chips';
 
-    // Declare another variable:
-    let myBestMeal = function () {
-        console.log(bestFood);
-        let bestFood = 'Vegetable Fried Rice';
-    };
+//     // Declare another variable:
+//     let myBestMeal = function () {
+//         console.log(bestFood);
+//         let bestFood = 'Vegetable Fried Rice';
+//     };
 
-    // Invoke myBestMeal function:
-    myBestMeal();
-}
+//     // Invoke myBestMeal function:
+//     myBestMeal();
+// }
+
+// let conf = confirm('You must be at least 18 years old to view this content.');
+// let name = prompt("What's your name?");
+// let age = prompt("What's your age?");
+
+// if (age >= 18) {
+//     alert('Welcome!');
+// } else {
+//     alert('Sorry, you must be at least 18 years old to view this content.');
+// }
+
+// let a = 1, b = 1;
+
+// let c = ++a; 
+// let d = b++; 
+
+// c
+// d
+
+
+// let a = 2;
+
+// let x = 1 + (a *= 2);
+
+// console.log(a,x)
+
+// console.log("" + 1 + 0);
+// console.log("" - 1 + 0);
+// console.log(true + false);
+// console.log(4 + 5 + "px");
+// console.log("$" + 4 + 5);
+// console.log("4" -2);
+// console.log("4px" - 2);
+// console.log("  -9  " + 5);
+// console.log("  -9  " - 5);
+// console.log(null + 1);
+// console.log(undefined + 1);
+// console.log(" \t \n" - 2);
+
+let a = prompt("First number?", 1);
+let b = prompt("Second number?", 2);
+
+alert(+a + +b)
