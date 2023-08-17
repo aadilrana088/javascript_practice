@@ -541,7 +541,95 @@
 // console.log(undefined + 1);
 // console.log(" \t \n" - 2);
 
-let a = prompt("First number?", 1);
-let b = prompt("Second number?", 2);
+// let a = prompt("First number?", 1);
+// let b = prompt("Second number?", 2);
 
-alert(+a + +b)
+// alert(+a + +b)
+
+// console.log(5 > 4 );
+// console.log("apple" > "pineapple");
+// console.log("2" > "12");
+// console.log(undefined == null);
+// console.log(undefined === null);
+// console.log(null == "\n0\n");
+// console.log(null === +"\n0\n");
+// console.log(typeof null, typeof undefined)
+// console.log(null, undefined)
+
+// alert( null || 2 || undefined );
+// alert( alert(1) || 2 || alert(3) );
+
+// var a = 1, b=0;
+// while(a <=3) {
+//     a++;
+//     b += a*2
+//     console.log(b)
+// }
+
+// let i = 0;
+// while (i++ < 5) console.log(i);
+
+
+// let  i = 0;
+// do {
+//     let prp = prompt("Enter Value")
+//     i = prp;
+// }while(i <= 100 && i )
+
+// let n=5;
+// let isPrime; 
+// for(let i =2;i <=n; i++ ){
+//     for(let j = 2; j< i; j++) {
+//         if(i %j == 0) {
+//             isPrime = ""
+//             break
+//         }
+//         isPrime = i;
+//     }
+//     console.log(isPrime)
+// }
+// console.log(a)
+// var a;
+// console.log(a)
+// a=10;
+// console.log(a)
+
+// var pets = ['dog', 'chicken', 'cat', 'dog', 'chicken', 'chicken', 'rabbit'];
+
+// var petsCount = pets.reduce(function(obj, pet) {
+//     if (!obj[pet]) {
+//         console.log(obj[pet])
+//         obj[pet] = 1;
+//     } else {
+//         obj[pet]++;
+//     }
+//     return obj;
+// }, {})
+
+// console.log(petsCount);
+
+
+function myFunction(arr1, arr2) {
+    const arr3 = [...arr1, ...arr2] 
+    console.log(arr3);
+    const set1 = new Set(arr3)
+    let ndarr = [...set1]
+    // console.log(ndarr.sort((a,b) => a-b));
+    let i=0, j, temp;
+    console.log(ndarr)
+    while(i <   ndarr.length) {
+        j= i+1;
+        while(j< ndarr.length) {
+            if(ndarr[i] > ndarr[j]) {
+                temp = ndarr[i];
+                ndarr[i] = ndarr[j]
+                ndarr[j] = temp
+            }
+            j++
+        }
+        i++
+    }
+    console.log(ndarr)
+}
+
+myFunction([2,35,6,-2,7], [35, 6, 8, -3])
